@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // ── Carousel ──────────────────────────────────────────────────
+    // Carousel
     const slides = document.querySelectorAll(".slide");
     const dots   = document.querySelectorAll(".dot");
     let current = 0, timer;
@@ -22,11 +22,11 @@ document.addEventListener("DOMContentLoaded", () => {
     function resetTimer() { clearInterval(timer); startTimer(); }
     if (slides.length) startTimer();
 
-    // ── Search on Enter ───────────────────────────────────────────
+    // Search on Enter
     const input = document.getElementById("search-input");
     input?.addEventListener("keydown", e => { if (e.key === "Enter") searchSchemes(); });
 
-    // ── Suggestions dropdown ──────────────────────────────────────
+    // Suggestions dropdown
     const dropdown = document.getElementById("suggestions-dropdown");
     input?.addEventListener("focus", () => { if (!input.value.trim()) dropdown?.classList.add("open"); });
     input?.addEventListener("input", () => {
@@ -43,14 +43,14 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!e.target.closest(".search-wrapper")) dropdown?.classList.remove("open");
     });
 
-    // ── Clear button ──────────────────────────────────────────────
+    // Clear button
     document.getElementById("clear-btn")?.addEventListener("click", () => {
         if (input) { input.value = ""; input.focus(); }
         document.getElementById("clear-btn").style.display = "none";
         dropdown?.classList.add("open");
     });
 
-    // ── Close results button ──────────────────────────────────────
+    // Close results button
     document.getElementById("close-results-btn")?.addEventListener("click", () => {
         const sec = document.getElementById("results-section");
         sec?.classList.remove("visible");
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("clear-btn").style.display = "none";
     });
 
-    // ── Theme Toggle ──────────────────────────────────────────────
+    // Theme Toggle
     const themeBtn  = document.getElementById("theme-toggle");
     const themeIcon = document.getElementById("theme-icon");
     let dark = localStorage.getItem("dark") === "true";
@@ -81,12 +81,12 @@ document.addEventListener("DOMContentLoaded", () => {
         lucide.createIcons();
     }
 
-    // ── Mobile Menu ───────────────────────────────────────────────
+    // Mobile Menu
     document.getElementById("mobile-menu-btn")?.addEventListener("click", () => {
         document.getElementById("nav-links")?.classList.toggle("open");
     });
 
-    // ── Navbar scroll effect ──────────────────────────────────────
+    // Navbar scroll effect
     window.addEventListener("scroll", () => {
         const navbar = document.getElementById("navbar");
         if (navbar) navbar.style.boxShadow = window.scrollY > 10 ? "0 2px 20px rgba(0,0,0,0.1)" : "0 1px 0 var(--border)";
@@ -97,14 +97,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // ── Back to Top ───────────────────────────────────────────────
+    // Back to Top
     document.getElementById("back-to-top")?.addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
 });
 
 
-// ── Search Function ───────────────────────────────────────────────
+// Search Function
 async function searchSchemes() {
     const input    = document.getElementById("search-input");
     const btn      = document.getElementById("search-btn");
@@ -168,7 +168,7 @@ async function searchSchemes() {
 }
 
 
-// ── Render Results ────────────────────────────────────────────────
+// Render Results
 function renderResults(data, query) {
     const resultsContainer = document.getElementById("results-container");
     const resultsTitle     = document.getElementById("results-title");
@@ -226,7 +226,7 @@ function renderResults(data, query) {
 }
 
 
-// ── Quick Search from category / carousel buttons ─────────────────
+// Quick Search from category / carousel buttons
 function quickSearch(query) {
     const input = document.getElementById("search-input");
     if (input) { input.value = query; document.getElementById("clear-btn").style.display = "flex"; }
@@ -235,7 +235,7 @@ function quickSearch(query) {
 }
 
 
-// ── Toast Notification ────────────────────────────────────────────
+// Toast Notification
 function showToast(msg, duration = 3000) {
     const toast = document.getElementById("toast");
     if (!toast) return;
@@ -245,7 +245,7 @@ function showToast(msg, duration = 3000) {
 }
 
 
-// ── Escape HTML ───────────────────────────────────────────────────
+// Escape HTML
 function escapeHtml(str) {
     const d = document.createElement("div");
     d.textContent = str;
@@ -253,7 +253,7 @@ function escapeHtml(str) {
 }
 
 
-// ── Sign In Modal ─────────────────────────────────────────────
+// Sign In Modal
 function openSignIn() {
     document.getElementById("modal-overlay")?.classList.add("open");
     document.getElementById("signin-modal")?.classList.add("open");
@@ -282,7 +282,7 @@ document.addEventListener("keydown", e => {
 });
 
 
-// ── Voice Search — Cross Browser (Chrome/Edge/Safari + Firefox) ──
+// Voice Search — Cross Browser (Chrome/Edge/Safari + Firefox)
 (function initVoice() {
     const voiceBtn = document.getElementById("voice-btn");
     const micIcon  = document.getElementById("mic-icon");

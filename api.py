@@ -17,7 +17,7 @@ except Exception as e:
     df = pd.DataFrame()
 
 
-# ── API Route (must be before catch-all static route) ──────────
+# API Route (must be before catch-all static route)
 @app.route('/api/search', methods=['POST'])
 def search_schemes():
     data = request.get_json()
@@ -72,7 +72,7 @@ def search_schemes():
     })
 
 
-# ── Voice Transcription Route (Firefox / MediaRecorder fallback) ──
+# Voice Transcription Route (Firefox / MediaRecorder fallback)
 @app.route('/api/voice', methods=['POST'])
 def voice_transcribe():
     if 'audio' not in request.files:
@@ -135,7 +135,7 @@ def voice_transcribe():
                 except: pass
 
 
-# ── Frontend Routes ────────────────────────────────────────────
+# Frontend Routes
 @app.route('/')
 def serve_index():
     return send_from_directory('frontend-html', 'index.html')

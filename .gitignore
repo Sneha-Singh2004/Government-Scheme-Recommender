@@ -1,0 +1,18 @@
+# Environments
+venv/
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Data
+data/raw/
+data/interim/
+# data/processed/  # Agar aap processed data upload karna chahte hain to isse comment hata dein
+
+# OS
+.DS_Store
+Thumbs.db

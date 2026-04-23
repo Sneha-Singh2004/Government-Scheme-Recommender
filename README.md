@@ -2,8 +2,6 @@
 
 **JanSeva AI** is an intelligent, AI-powered platform designed to bridge the gap between complex government schemes and the common citizen. Using advanced Natural Language Processing (NLP), it allows users to discover relevant schemes by describing their situation in plain language—Hindi, Hinglish, or English.
 
-![JanSeva AI UI Preview](https://via.placeholder.com/1200x600/0F766E/FFFFFF?text=JanSeva+AI+-+Intelligent+Scheme+Discovery)
-
 ## Features
 
 - **AI-Powered Semantic Search**: Uses `sentence-transformers` to understand user intent rather than just keywords.
